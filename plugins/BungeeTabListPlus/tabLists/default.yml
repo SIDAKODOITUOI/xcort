@@ -1,0 +1,117 @@
+# This is the default configuration file of BungeeTabListPlus.
+#
+# Since the configuration of the plugin is quite complex you
+# might want to have a look at the wiki from time to time.
+#
+# Wiki: https://github.com/CodeCrafter47/BungeeTabListPlus/wiki
+#  Placeholders: https://github.com/CodeCrafter47/BungeeTabListPlus/wiki/Placeholders
+#  Examples: https://github.com/CodeCrafter47/BungeeTabListPlus/wiki/Examples
+#
+
+# Configure who can see the tab lists
+# See https://github.com/CodeCrafter47/BungeeTabListPlus/wiki/MultipleTablists
+showTo: all
+priority: 0
+
+# Configure header and footer
+# See https://github.com/CodeCrafter47/BungeeTabListPlus/wiki/Configuration-Basics-Part-3---Header-and-Footer
+showHeaderFooter: true
+header:
+- '&f&LMÁY CHỦ &1&lMINEHAV'
+- '&f&LMÁY CHỦ &2&lMINEHAV'
+- '&f&LMÁY CHỦ &3&lMINEHAV'
+- '&f&LMÁY CHỦ &4&lMINEHAV'
+- '&f&LMÁY CHỦ &5&lMINEHAV'
+- '&f&LMÁY CHỦ &6&lMINEHAV'
+- '&f&LMÁY CHỦ &7&lMINEHAV'
+- '&f&LMÁY CHỦ &8&lMINEHAV'
+- '&f&LMÁY CHỦ &9&lMINEHAV'
+- '&f&LMÁY CHỦ &a&lMINEHAV'
+- '&f&LMÁY CHỦ &b&lMINEHAV'
+- '&f&LMÁY CHỦ &d&lMINEHAV'
+- '&f&LMÁY CHỦ &e&lMINEHAV'
+headerAnimationUpdateInterval: 0.2
+footer: |-
+  &e&l✯ &c&lFacebook Owner &e&l✯
+  &a&lhttps://www.facebook.com/LYHOANGANH.HTBOT/
+
+# Configure whether hidden players appear on the tab list
+# see https://github.com/CodeCrafter47/BungeeTabListPlus/wiki/Hidden-Players
+hiddenPlayers: VISIBLE_TO_ADMINS
+
+# Player sets are required to display players and player counts on the tab list.
+# See https://github.com/CodeCrafter47/BungeeTabListPlus/wiki/Configuration-Basics-Part-4---Player-sets
+playerSets:
+  all_players: all
+
+# Type of the tab list
+# See https://github.com/CodeCrafter47/BungeeTabListPlus/wiki/Configuration-Basics-Part-5---Dynamic-Size-Tablist
+# and https://github.com/CodeCrafter47/BungeeTabListPlus/wiki/Configuration-Basics-Part-6---Fixed-Size-Tablist-Introduction
+# for different options
+type: FIXED_SIZE
+size: 60
+
+defaultIcon: colors/dark_gray.png
+defaultPing: 1000
+
+# Here the content of the tab list is configured:
+components:
+  - {text: "&eBạn Đang Ở : &a${viewer server}", icon: "default/server.png", ping: 0}
+  - {text: "&eThời Gian: &a${time H:mm:ss}", icon: "default/clock.png", ping: 0}
+  - {text: "&ePing: &a${viewer_colored_ping}ms", icon: "default/ping.png", ping: 0}
+  -
+  -
+  -
+  - !players_by_server
+    playerSet: all_players
+    serverHeader:
+      - {text: "&c&l${server}&f&o (${server_player_count}):", icon: "colors/yellow.png", ping: 0}
+    serverSeparator:
+      -
+      -
+      -
+    showServers: ALL
+    playerComponent: "${player vault_prefix}${player name}${afk_tag}"
+    morePlayersComponent: {text: "&7... and &e${other_count} &7others", icon: "colors/gray.png", ping: 0}
+  - !spacer {}
+  - {text: "&a➠ Gợi Ý: Nạp MOMO - ATM X2 + 50% Giá Trị", ping: 0}
+  - {text: "&aNội Dung : &f${uppercase ${viewer name}}", ping: 0}
+  - {text: "&aMOMO : 0947654575 ( TRAN THI HANG )", ping: 0}
+  - {text: "&a➠ Gợi Ý: /napthe X2 Nạp Đến Hết 1/4", ping: 0}
+  - {text: "&aNạp Auto", ping: 0}
+  - {text: "&aAGRIBANK : 5230205020406 ( TRAN THI HANG )", ping: 0}
+
+# Custom placeholders are a powerful mechanism to add more dynamic content
+# to the tab list.
+# See https://github.com/CodeCrafter47/BungeeTabListPlus/wiki/CustomPlaceholders
+customPlaceholders:
+  # Defines the ${afk_tag} placeholder which is used to add "|away"
+  # to the players name if he is afk.
+  afk_tag:
+    !conditional
+    condition: ${player essentials_afk}
+    true: "&7|&oaway"
+    false: ""
+  # Defines the ${viewer_colored_ping} placeholder which adds a color code to
+  # the ping using the following color scheme:
+  # 0 - 49   -> green
+  # 50 - 149 -> yellow
+  # 150+     -> red
+  viewer_colored_ping:
+    !conditional
+    condition: "${viewer ping} < 150"
+    true: ${viewer_colored_ping0}
+    false: "&c${viewer ping}"
+  viewer_colored_ping0:
+    !conditional
+    condition: "${viewer ping} < 50"
+    true: "&a${viewer ping}"
+    false: "&e${viewer ping}"
+  server_prefix:
+    !switch
+    parameters: 1
+    expression: "${%0}"
+    replacements:
+      "OP_SKYBLOCK": "[OP SKY]"
+      "LOBBY": "[LOBBY]"
+    defaultReplacement: ""

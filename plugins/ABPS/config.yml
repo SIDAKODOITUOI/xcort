@@ -1,0 +1,69 @@
+#     ▄████████ ▀█████████▄     ▄███████▄    ▄████████
+#    ███    ███   ███    ███   ███    ███   ███    ███
+#    ███    ███   ███    ███   ███    ███   ███    █▀
+#    ███    ███  ▄███▄▄▄██▀    ███    ███   ███
+#  ▀███████████ ▀▀███▀▀▀██▄  ▀█████████▀  ▀███████████
+#    ███    ███   ███    ██▄   ███                 ███
+#    ███    ███   ███    ███   ███           ▄█    ███
+#    ███    █▀  ▄█████████▀   ▄████▀       ▄████████▀
+
+
+# Message that will get displayed when someone tries to execute a blocked command
+blocked-command-message:
+- "  &e████████"
+- "  &e██&0█&e██&0█&e██"
+- "  &e██&0█&e██&0█&e██        &c&lYou are unable to acces to this"
+- "  &e████████                           &c&linformation!        "
+- "  &e██&0████&e██"
+- "  &e█&0█&e████&0█&e█"
+- "  &e█&0█&e████&0█&e█"
+- "  &e████████"
+
+# Message that will receive those who has "abps.notify" permission
+blocked-command-message-admin:
+- "&8[&cABPS&8] &fThe player &c{player} &ftried to execute a blocked command."
+
+# Blocked commands; You can add infinite amount of commands
+blocked-commands:
+- "about"
+- "bukkit:about"
+- "bukkit:help"
+- "bukkit:?"
+- "bukkit:me"
+- "bukkit:pl"
+- "bukkit:plugins"
+- "bukkit:ver"
+- "bukkit:version"
+- "help"
+- "icanhasbukkit"
+- "info"
+- "?"
+- "/calc"
+- "/eval"
+- "//eval"
+- "//calc"
+- "calc"
+- "eval"
+- "pl"
+- "plugins"
+- "plugin"
+- "ver"
+- "version"
+- "/mv"
+- "mv"
+- "/multiverse-core:mv"
+- "multiverse-core:mv"
+- "server"
+- "alert"
+- "send"
+- "/server"
+- "/alert"
+- "/send"
+
+
+#  ███████╗███╗   ██╗██████╗ 
+#  ██╔════╝████╗  ██║██╔══██╗
+#  █████╗  ██╔██╗ ██║██║  ██║
+#  ██╔══╝  ██║╚██╗██║██║  ██║
+#  ███████╗██║ ╚████║██████╔╝
+#  ╚══════╝╚═╝  ╚═══╝╚═════╝ 

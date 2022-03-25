@@ -1,0 +1,124 @@
+debug:
+  output-downstream-errors: false
+general:
+  allowed-name-characters: '[a-zA-Z0-9_]*'
+  initial-timeout: 6000
+  base-tick: 1000
+  kick-timeout: 6000
+  compression-strength: -1
+  debug-mode: false
+  new-connection-speed-threshold: 500
+  minimum-name-length: 3
+anti-ddos:
+  enabled: false
+  max-bytes-per-second: 100000
+  max-packets-per-second: 1000
+  log-highest-achieved: true
+  blacklist: true
+log-filter:
+  enabled: false
+  filtered:
+  - BotHandler
+  - ping
+  - ServerConnector
+  - DownstreamBridge
+shared-global-blacklist:
+  enabled: false
+  update-database-interval-seconds: 3600
+anti-bot:
+  print-connection-stats: false
+  verify:
+    enabled: true
+    verify-packets: true
+    verify-brand: true
+    max-ping: 2000
+    max-check-time: 4000
+  boot-delay-seconds: 30
+  disable-checks-time: 60000
+  linux-check: true
+  chat-check: true
+  dns-check: true
+  dns-check-is-strict: true
+  whitelist-pickaxe-chat: false
+  ip-tracking-timeout: 40000
+  chat-force-delay: 800
+  whitelist-survive-time: 14400000
+  whitelist-purge-interval: 43200000
+  time-to-whitelist: 300000
+  time-grouping-tick: 5000
+  anti-bot-deactivate-delay: 20
+  anti-bot-activate-connections: 13
+  speedy-login:
+    max-logins-per-tick: 4
+    blacklist-violations: 3
+  speedy-connection:
+    max-connections-per-tick: 10
+    blacklist-violations: 3
+  login-check:
+    timeout-time: 20000
+    strange-connection-delay: 30000
+  unstable-check:
+    enabled: false
+    latency-threshold: 500
+    delay-kick-for-reason: false
+    blacklist-violations: 5
+  strange-name:
+    enabled: true
+    random-capital-count: 3
+    random-number-count: 3
+    blacklist-violations: 2
+  pre-p:
+    enabled: true
+    delay: 3
+    blacklist-violations: 2
+  timeout-flood:
+    enabled: false
+    time-between-timeouts: 10000
+    blacklist-violations: 3
+  name-pattern:
+    enabled: true
+    minimum-name-length: 5
+    name-history-length: 2
+    same-length-only: false
+    minimum-match-percent: 0.4
+    blacklist-violations: 2
+  anti-hang:
+    enabled: true
+    only-during-bot-attack: true
+    force-timeout-time: 2000
+security-manager:
+  blacklist-reset-time: 60
+  log-blacklist: true
+  ignore-addresses-enabled: false
+  ipset-blacklisting: false
+  ignored-addresses: []
+exploit-monitor:
+  enabled: false
+  max-packet-bytes: 12000
+  packet-bytes-per-tick-limit: 100000
+  packets-per-tick-limit: 500
+login:
+  tick-length-ms: 100
+  thread-pool-size: 5
+  anti-vpn:
+    enabled: false
+    log-non-cache-detection: false
+    blocked-asn: []
+    blocked-country: []
+    whitelisted-ip-or-name: []
+    save-interval: 3600
+    purge-interval: 86400
+    purge-age: 2592000
+    blacklist-on-detection: false
+    only-blacklist-on-detection-during-attack: true
+    initial-connection-checkenabled: true
+    initial-connection-checkonly-during-bot-attack: true
+    initial-connection-checkcache-only: true
+    proxycheckerio-api:
+      enabled: false
+      arguments: '&risk=1&vpn=1&asn=1&tag={name}'
+      key: ''
+    iphub-api:
+      enabled: false
+      key: ''
+only-blacklist-packet-errors-during-attack: true
